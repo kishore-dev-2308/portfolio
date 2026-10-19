@@ -173,6 +173,10 @@ document.addEventListener('DOMContentLoaded', () => {
           tile.style.display = 'none';
         }
       });
+
+      if (typeof AOS !== 'undefined') {
+        setTimeout(() => { AOS.refresh(); }, 100);
+      }
     });
   });
 
@@ -205,6 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (personalHeader) {
         personalHeader.style.display = (filterVal !== 'all' && filterVal !== 'personal') ? 'none' : 'block';
+      }
+
+      if (typeof AOS !== 'undefined') {
+        setTimeout(() => { AOS.refresh(); }, 100);
       }
     });
   });
