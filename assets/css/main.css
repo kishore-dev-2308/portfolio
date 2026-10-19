@@ -485,8 +485,9 @@ li.text-body {
 
 .hero-avatar-wrap img {
   width: 100%;
-  height: 420px;
+  height: 480px;
   object-fit: cover;
+  object-position: center 15%;
   display: block;
   transition: var(--transition-normal);
 }
