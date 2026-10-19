@@ -1,229 +1,243 @@
 /**
-* Template Name: iPortfolio
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Updated: Jun 29 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+ * Kishore Kumar S - Portfolio Main JavaScript
+ * High-performance, clean vanilla JS with EmailJS & SweetAlert2
+ */
 
-(function() {
-  "use strict";
+document.addEventListener('DOMContentLoaded', () => {
+  'use strict';
 
-  /**
-   * Header toggle
-   */
-  const headerToggleBtn = document.querySelector('.header-toggle');
-
-  function headerToggle() {
-    document.querySelector('#header').classList.toggle('header-show');
-    headerToggleBtn.classList.toggle('bi-list');
-    headerToggleBtn.classList.toggle('bi-x');
-  }
-  headerToggleBtn.addEventListener('click', headerToggle);
-
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.header-show')) {
-        headerToggle();
-      }
-    });
-
-  });
-
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
-    });
-  });
-
-  /**
-   * Preloader
-   */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
-  }
-
-  /**
-   * Scroll top button
-   */
-  let scrollTop = document.querySelector('.scroll-top');
-
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-    }
-  }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
-
-  /**
-   * Animation on scroll function and init
-   */
-  function aosInit() {
+  // 1. Initialize AOS (Animate on Scroll)
+  if (typeof AOS !== 'undefined') {
     AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
+      duration: 700,
+      easing: 'ease-out-cubic',
       once: true,
-      mirror: false
+      offset: 50,
     });
   }
-  window.addEventListener('load', aosInit);
 
-  /**
-   * Init typed.js
-   */
-  const selectTyped = document.querySelector('.typed');
-  if (selectTyped) {
-    let typed_strings = selectTyped.getAttribute('data-typed-items');
-    typed_strings = typed_strings.split(',');
-    new Typed('.typed', {
-      strings: typed_strings,
+  // 2. Initialize Typed.js for dynamic hero subtitles
+  const typedTarget = document.querySelector('.typed-hero');
+  if (typedTarget && typeof Typed !== 'undefined') {
+    new Typed('.typed-hero', {
+      strings: [
+        'Backend-Focused Full Stack Developer',
+        'Node.js & Express.js Specialist',
+        'Laravel & PHP Architect',
+        'MERN Stack & Real-Time Systems Engineer',
+        'Cloud & RESTful API Designer'
+      ],
+      typeSpeed: 55,
+      backSpeed: 30,
+      backDelay: 2200,
       loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
+      showCursor: true,
+      cursorChar: '|'
     });
   }
 
-  /**
-   * Initiate Pure Counter
-   */
-  new PureCounter();
+  // 3. Navbar scroll effect & ScrollSpy
+  const navbar = document.querySelector('.custom-navbar');
+  const navLinks = document.querySelectorAll('.nav-link-item');
+  const sections = document.querySelectorAll('section[id]');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-  /**
-   * Animate the skills items on reveal
-   */
-  let skillsAnimation = document.querySelectorAll('.skills-animation');
-  skillsAnimation.forEach((item) => {
-    new Waypoint({
-      element: item,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = item.querySelectorAll('.progress .progress-bar');
-        progress.forEach(el => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%';
-        });
+  function handleScroll() {
+    const scrollY = window.scrollY;
+
+    // Navbar background blur/border on scroll
+    if (navbar) {
+      if (scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+
+    // Scroll-to-top button visibility
+    if (scrollTopBtn) {
+      if (scrollY > 350) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    }
+
+    // Active link highlighting (Scrollspy)
+    let currentSectionId = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.offsetHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        currentSectionId = section.getAttribute('id');
       }
     });
-  });
 
-  /**
-   * Initiate glightbox
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentSectionId}`) {
+        link.classList.add('active');
+      }
+    });
+  }
 
-  /**
-   * Init isotope layout and filters
-   */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // Trigger once on page load
 
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
+  // Scroll to top action
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
       });
     });
+  }
 
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
+  // 4. Mobile Menu Drawer
+  const mobileToggleBtn = document.getElementById('mobileToggleBtn');
+  const navMenuLinks = document.getElementById('navMenuLinks');
+
+  if (mobileToggleBtn && navMenuLinks) {
+    mobileToggleBtn.addEventListener('click', () => {
+      const isOpen = navMenuLinks.classList.toggle('open');
+      const icon = mobileToggleBtn.querySelector('i');
+      if (icon) {
+        icon.className = isOpen ? 'bi bi-x-lg' : 'bi bi-list';
+      }
+    });
+
+    // Close mobile menu when clicking any nav link
+    navMenuLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenuLinks.classList.remove('open');
+        const icon = mobileToggleBtn.querySelector('i');
+        if (icon) icon.className = 'bi bi-list';
+      });
+    });
+  }
+
+  // 5. Skills Category Filter
+  const skillTabBtns = document.querySelectorAll('.skill-tab-btn');
+  const skillCategoryCards = document.querySelectorAll('.skill-filter-target');
+
+  skillTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      skillTabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterCategory = btn.getAttribute('data-filter');
+
+      skillCategoryCards.forEach(card => {
+        if (filterCategory === 'all' || card.getAttribute('data-category').includes(filterCategory)) {
+          card.style.display = 'block';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
         }
-      }, false);
+      });
     });
-
   });
 
-  /**
-   * Init swiper sliders
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
+  // 6. Projects Category Filter
+  const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
+  const projectCards = document.querySelectorAll('.project-filter-card');
 
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
-      }
+  projectFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      projectFilterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterVal = btn.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        if (filterVal === 'all' || card.getAttribute('data-category') === filterVal) {
+          card.style.display = 'block';
+          card.style.animation = 'fadeIn 0.4s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     });
+  });
+
+  // 7. Dynamic Experience calculation
+  const expElem = document.getElementById('exp-years');
+  if (expElem) {
+    const startYear = 2023;
+    const currentYear = new Date().getFullYear();
+    const calculatedExp = currentYear - startYear;
+    expElem.textContent = `${calculatedExp}+`;
   }
 
-  window.addEventListener("load", initSwiper);
-
-  /**
-   * Correct scrolling position upon page load for URLs containing hash links.
-   */
-  window.addEventListener('load', function(e) {
-    if (window.location.hash) {
-      if (document.querySelector(window.location.hash)) {
-        setTimeout(() => {
-          let section = document.querySelector(window.location.hash);
-          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-          window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop),
-            behavior: 'smooth'
-          });
-        }, 100);
-      }
+  // 8. EmailJS Contact Form Submission
+  const emailForm = document.getElementById('contactForm');
+  if (emailForm) {
+    // Initialize EmailJS with your active public key
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init('nKy3xqbVwMeIZjocG');
     }
-  });
 
-  /**
-   * Navmenu Scrollspy
-   */
-  let navmenulinks = document.querySelectorAll('.navmenu a');
+    emailForm.addEventListener('submit', function(e) {
+      e.preventDefault();
 
-  function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
-      if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
-      if (!section) return;
-      let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-        navmenulink.classList.add('active');
-      } else {
-        navmenulink.classList.remove('active');
+      const nameField = document.getElementById('formName');
+      const emailField = document.getElementById('formEmail');
+      const subjectField = document.getElementById('formSubject');
+      const messageField = document.getElementById('formMessage');
+      const submitBtn = document.getElementById('submitBtn');
+
+      if (!nameField.value.trim() || !emailField.value.trim() || !messageField.value.trim()) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Required Fields',
+          text: 'Please fill in your name, email, and message before sending.',
+          background: '#0f172a',
+          color: '#f8fafc',
+          confirmButtonColor: '#38bdf8'
+        });
+        return;
       }
-    })
-  }
-  window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
 
-})();
+      // Show loading status on button
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+      submitBtn.disabled = true;
+
+      emailjs.send('service_fuelwwp', 'template_e69v7yp', {
+        name: nameField.value.trim(),
+        title: subjectField ? subjectField.value.trim() : 'Portfolio Contact',
+        to_email: emailField.value.trim(),
+        message: messageField.value.trim()
+      })
+      .then(function(response) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Message Sent Successfully!',
+          text: "Thank you for reaching out, Kishore will get back to you promptly.",
+          background: '#0f172a',
+          color: '#f8fafc',
+          confirmButtonColor: '#38bdf8'
+        });
+
+        // Reset form
+        emailForm.reset();
+      })
+      .catch(function(error) {
+        console.error('EmailJS Error:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Delivery Failed',
+          text: 'Could not send the message automatically. Feel free to email directly at kishore787120@gmail.com.',
+          background: '#0f172a',
+          color: '#f8fafc',
+          confirmButtonColor: '#38bdf8'
+        });
+      })
+      .finally(function() {
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+      });
+    });
+  }
+});
