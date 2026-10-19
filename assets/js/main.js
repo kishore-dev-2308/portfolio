@@ -140,6 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (icon) icon.className = 'bi bi-list';
       });
     });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navMenuLinks.classList.contains('open')) {
+        if (!navMenuLinks.contains(e.target) && !mobileToggleBtn.contains(e.target)) {
+          navMenuLinks.classList.remove('open');
+          const icon = mobileToggleBtn.querySelector('i');
+          if (icon) icon.className = 'bi bi-list';
+        }
+      }
+    });
   }
 
   // 5. Skills Category Filter (Logos, No Percentages)
