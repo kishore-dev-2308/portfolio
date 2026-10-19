@@ -94,6 +94,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Smooth scroll for all in-page anchor navigation links & trigger AOS refresh
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const hash = this.getAttribute('href');
+      if (hash && hash.length > 1) {
+        const targetSection = document.querySelector(hash);
+        if (targetSection) {
+          e.preventDefault();
+          const navHeight = navbar ? navbar.offsetHeight : 76;
+          const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navHeight + 2;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          if (history.pushState) {
+            history.pushState(null, null, hash);
+          }
+          if (typeof AOS !== 'undefined') {
+            setTimeout(() => { AOS.refresh(); }, 350);
+          }
+        }
+      }
+    });
+  });
+
   // 4. Mobile Menu Drawer
   const mobileToggleBtn = document.getElementById('mobileToggleBtn');
   const navMenuLinks = document.getElementById('navMenuLinks');
