@@ -868,6 +868,188 @@ li.text-body {
 }
 
 /* ==============================================================
+   Resume Document Section Styling
+   ============================================================== */
+.resume-paper-container {
+  max-width: 980px;
+  margin: 0 auto;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), var(--shadow-glow);
+  position: relative;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.resume-paper-header {
+  border-bottom: 2px solid rgba(56, 189, 248, 0.4);
+  padding-bottom: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.resume-paper-name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.resume-paper-headline {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  margin-bottom: 12px;
+}
+
+.resume-paper-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.92rem;
+  color: #cbd5e1;
+}
+
+.resume-paper-contact a {
+  color: var(--accent-cyan);
+}
+
+.resume-section-heading {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 8px;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.resume-section-heading i {
+  color: var(--accent-cyan);
+}
+
+.resume-skills-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.resume-skill-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.92rem;
+}
+
+.resume-skill-label {
+  font-weight: 700;
+  color: #f1f5f9;
+  min-width: 195px;
+  flex-shrink: 0;
+}
+
+.resume-skill-val {
+  color: #cbd5e1;
+}
+
+.resume-job-card {
+  margin-bottom: 28px;
+}
+
+.resume-job-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.resume-job-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.resume-job-company {
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+.resume-job-period {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.resume-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resume-bullets li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.resume-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-cyan);
+}
+
+.resume-proj-card {
+  margin-bottom: 24px;
+}
+
+.resume-proj-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.resume-proj-stack {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent-cyan);
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .resume-paper-container {
+    padding: 24px 16px;
+  }
+  .resume-paper-name {
+    font-size: 1.6rem;
+  }
+  .resume-skill-label {
+    min-width: 100%;
+  }
+}
+
+/* ==============================================================
    Experience Timeline
    ============================================================== */
 .timeline-wrap {

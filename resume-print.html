@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kishore Kumar S - Resume</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 14mm 16mm;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.35;
+      font-size: 9.5pt;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      text-align: center;
+      border-bottom: 2px solid #2563eb;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+    .name {
+      font-size: 20pt;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #0f172a;
+      margin: 0 0 4px;
+      text-transform: uppercase;
+    }
+    .headline {
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: #2563eb;
+      margin: 0 0 4px;
+    }
+    .contact-info {
+      font-size: 9pt;
+      color: #475569;
+    }
+    .contact-info a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    .section-title {
+      font-size: 10pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #0f172a;
+      border-bottom: 1.5px solid #cbd5e1;
+      padding-bottom: 2px;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+    .summary-text {
+      color: #334155;
+      text-align: justify;
+      margin: 0 0 6px;
+      font-size: 9.2pt;
+    }
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-size: 8.8pt;
+    }
+    .skill-row {
+      display: flex;
+    }
+    .skill-label {
+      font-weight: 700;
+      color: #0f172a;
+      min-width: 175px;
+      flex-shrink: 0;
+    }
+    .skill-values {
+      color: #334155;
+    }
+    .job-block {
+      margin-bottom: 8px;
+    }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .job-title {
+      font-size: 9.8pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .job-company {
+      font-weight: 600;
+      color: #2563eb;
+    }
+    .job-dates {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #64748b;
+    }
+    ul.bullet-list {
+      margin: 2px 0 6px 16px;
+      padding: 0;
+    }
+    ul.bullet-list li {
+      margin-bottom: 2.5px;
+      color: #334155;
+      font-size: 8.8pt;
+      text-align: justify;
+    }
+    .project-block {
+      margin-bottom: 8px;
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .project-title {
+      font-size: 9.8pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .tech-stack {
+      font-size: 8.3pt;
+      color: #475569;
+      font-style: italic;
+      margin-bottom: 2px;
+    }
+    .tech-stack strong {
+      font-style: normal;
+      color: #2563eb;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="name">KISHORE KUMAR S</div>
+    <div class="headline">Full Stack Developer | Backend Focused | Node.js | Laravel | MERN Stack</div>
+    <div class="contact-info">
+      Vellore, Tamil Nadu, India &nbsp;|&nbsp; +91 93442 91464 &nbsp;|&nbsp; kishore787120@gmail.com &nbsp;|&nbsp; 
+      <a href="https://www.linkedin.com/in/kishore-kumar-1a793b232/">LinkedIn</a> &nbsp;|&nbsp; 
+      <a href="https://github.com/kishore-dev-2308">GitHub</a>
+    </div>
+  </div>
+
+  <!-- Professional Summary -->
+  <div class="section-title">Professional Summary</div>
+  <p class="summary-text">
+    Backend-focused Full Stack Developer with 3+ years of experience building enterprise-grade server-side systems using Node.js, Express.js, Laravel, PHP, MongoDB, and MySQL. Specialised in RESTful API design, JWT/OAuth 2.0 authentication, RBAC, real-time systems, and AWS cloud infrastructure. Delivered MERN stack ERP platforms for cooperative finance operations, a government procurement automation platform, and a KYC/AML compliance solution for financial sector clients. Practised in Agile/Scrum delivery and AI-assisted development using Claude Code.
+  </p>
+
+  <!-- Technical Skills -->
+  <div class="section-title">Technical Skills</div>
+  <div class="skills-grid">
+    <div class="skill-row"><span class="skill-label">Backend:</span><span class="skill-values">Node.js, Express.js, PHP, Laravel, REST API Design, JWT, OAuth 2.0, MVC Architecture, Microservices</span></div>
+    <div class="skill-row"><span class="skill-label">Frontend:</span><span class="skill-values">React, Redux, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, SCSS, Bootstrap, jQuery</span></div>
+    <div class="skill-row"><span class="skill-label">Databases:</span><span class="skill-values">MongoDB, MySQL, Redis, MongoDB Aggregation Pipelines, Query Optimisation</span></div>
+    <div class="skill-row"><span class="skill-label">Cloud & DevOps:</span><span class="skill-values">AWS (EC2, S3), Linux, Git, Bitbucket, CI/CD Pipelines, GitHub Actions</span></div>
+    <div class="skill-row"><span class="skill-label">Real-Time & Integrations:</span><span class="skill-values">WebSocket, Socket.IO, Pusher, Redis Pub/Sub, RESTful APIs, Firebase, WhatsApp Business API, Payment Gateways</span></div>
+    <div class="skill-row"><span class="skill-label">Security & Performance:</span><span class="skill-values">RBAC, Field Encryption, Rate Limiting, Secure Bid Management, API Security, Lazy Loading</span></div>
+    <div class="skill-row"><span class="skill-label">Methodologies & Tools:</span><span class="skill-values">Agile, Scrum, Code Review, Version Control, Claude Code (AI-assisted development)</span></div>
+    <div class="skill-row"><span class="skill-label">Domain Knowledge:</span><span class="skill-values">ERP (Finance, Procurement, HR, Payroll), KYC/AML Compliance, Government Procurement, RBAC</span></div>
+  </div>
+
+  <!-- Professional Experience -->
+  <div class="section-title">Professional Experience</div>
+
+  <div class="job-block">
+    <div class="job-header">
+      <div><span class="job-title">Full Stack Developer</span> &nbsp;|&nbsp; <span class="job-company">KLabs Technology, Chennai</span></div>
+      <div class="job-dates">April 2026 – Present</div>
+    </div>
+    <ul class="bullet-list">
+      <li>Architect and deliver full-stack enterprise applications using Node.js, Express.js, React, MongoDB, and MySQL for government and cooperative sector clients across 2 major platforms.</li>
+      <li>Design and implement secure RESTful APIs with RBAC, JWT authentication, field-level encryption, and multi-level approval workflows to meet enterprise and government security standards.</li>
+      <li>Build real-time notification and alert systems, immutable audit trail modules, and automated PDF/Excel export pipelines for business reporting and regulatory compliance.</li>
+      <li>Integrate AWS S3 for centralised document storage and deploy scalable backend services on AWS EC2; manage cloud infrastructure for production environments.</li>
+      <li>Collaborate directly with government departments and cooperative management teams to translate complex domain requirements into robust, maintainable software solutions.</li>
+      <li>Leverage Claude Code for API scaffolding, code generation, and automated documentation — reducing development overhead by an estimated 30% and maintaining consistent code structure across platforms.</li>
+    </ul>
+  </div>
+
+  <div class="job-block">
+    <div class="job-header">
+      <div><span class="job-title">Full Stack Developer</span> &nbsp;|&nbsp; <span class="job-company">Selvi Software Technologies Pvt. Ltd., Vellore</span></div>
+      <div class="job-dates">January 2023 – April 2026</div>
+    </div>
+    <ul class="bullet-list">
+      <li>Developed and maintained 10+ production full-stack web applications across logistics, retail, and services sectors using Laravel, Node.js, React, and MySQL/MongoDB, serving diverse client business workflows.</li>
+      <li>Designed and exposed 20+ RESTful APIs with JWT authentication, OAuth 2.0 (Google, Facebook), Passport, and middleware validation — consumed by both web and mobile client applications.</li>
+      <li>Built real-time communication features using Socket.IO and Pusher including live notifications, event broadcasting, and WebSocket-based interactions, significantly improving system responsiveness and user engagement.</li>
+      <li>Integrated 8+ third-party platforms including payment gateways, Firebase push notifications, WhatsApp Business API, and logistics APIs; implemented secure multi-provider authentication across multiple production systems.</li>
+      <li>Optimised MySQL query execution plans and MongoDB aggregation pipelines, delivering measurable throughput improvements across high-traffic modules; led legacy Laravel modernisation reducing technical debt.</li>
+      <li>Followed Agile/Scrum delivery practices with Git/Bitbucket version control; contributed to structured code reviews and CI/CD deployment pipelines.</li>
+    </ul>
+  </div>
+
+  <!-- Page Break for Clean 2-Page Layout -->
+  <div class="page-break"></div>
+
+  <!-- Key Projects -->
+  <div class="section-title">Key Projects</div>
+
+  <div class="project-block">
+    <div class="project-title">Cooperative Society ERP — Finance, Operations & Payroll Platform</div>
+    <div class="tech-stack"><strong>Tech Stack:</strong> Node.js, Express.js, React, Redux, MongoDB, MySQL, AWS S3, AWS EC2, Socket.IO, JWT</div>
+    <ul class="bullet-list">
+      <li>Architected a full-stack ERP platform for cooperative societies, digitising end-to-end finance operations including income/expense tracking, ledger management, and automated account reconciliation — replacing manual registers and disconnected spreadsheets entirely.</li>
+      <li>Built a Purchase & Sales module enabling goods procurement, vendor management, sales invoicing, and real-time stock movement tracking; developed Payroll module automating salary calculations, allowances, deductions, payslip generation, and monthly summaries for cooperative staff.</li>
+      <li>Designed RBAC dashboards for administrators, accountants, and supervisors; engineered 15+ modular RESTful APIs; optimised MongoDB aggregation pipelines and MySQL queries improving report performance by 35%; delivered automated PDF/Excel exports eliminating manual reporting cycles.</li>
+    </ul>
+  </div>
+
+  <div class="project-block">
+    <div class="project-title">JPC Procurement Platform — Government CWS Store Automation</div>
+    <div class="tech-stack"><strong>Tech Stack:</strong> Node.js, Express.js, React, Redux, MongoDB, AWS S3, AWS EC2, WhatsApp API, JWT, Field Encryption</div>
+    <ul class="bullet-list">
+      <li>Designed and delivered a full-stack government procurement automation platform for CWS (Central Warehousing Stores), replacing paper-based JPC workflows with a transparent, auditable, and regulation-ready digital system.</li>
+      <li>Built Indent Creation module with multi-level digital approval workflows; developed Tender Management module enabling registered suppliers to view tenders, submit bids, and upload documents — bringing full transparency to the government procurement lifecycle.</li>
+      <li>Implemented Supplier Registration & Verification portal with eligibility validation and admin approvals; engineered encrypted price quoting system accessible only to authorised evaluation committee members, preventing bid manipulation and ensuring procurement integrity.</li>
+      <li>Built comprehensive audit trail and version history modules for all indent, tender, and evaluation activities to ensure full regulatory traceability and compliance with government procurement standards.</li>
+    </ul>
+  </div>
+
+  <div class="project-block">
+    <div class="project-title">KYC / AML Compliance Platform — Financial Sector</div>
+    <div class="tech-stack"><strong>Tech Stack:</strong> Node.js, Express.js, React, Redux, MongoDB, JWT, OAuth 2.0, WhatsApp API, Document OCR APIs</div>
+    <ul class="bullet-list">
+      <li>Built a full-scale KYC/AML compliance platform automating customer identity verification, risk scoring, and end-to-end regulatory onboarding workflows for financial sector clients.</li>
+      <li>Integrated 3+ identity verification APIs including document OCR, liveness detection, and PEP/sanctions screening — automating over 80% of KYC verification checks; implemented AML transaction monitoring dashboards with configurable Node.js rule engines to detect and flag suspicious activities.</li>
+      <li>Engineered immutable audit trail and case management modules in MongoDB for regulatory traceability; implemented JWT/OAuth 2.0 RBAC for compliance officers, analysts, and admins; configured multi-channel notification pipelines via WhatsApp and email for KYC updates and escalations.</li>
+    </ul>
+  </div>
+
+  <div class="project-block">
+    <div class="project-title">Multi-Domain Enterprise Application Portfolio</div>
+    <div class="tech-stack"><strong>Tech Stack:</strong> Laravel, PHP, Node.js, Express.js, React, Redux, MySQL, MongoDB, AWS, Socket.IO, Pusher, Firebase, JWT</div>
+    <ul class="bullet-list">
+      <li>Designed and delivered 10+ production applications spanning logistics, retail, and services using Laravel and Node.js — with real-time Socket.IO communication, multi-provider authentication (JWT, OAuth 2.0, Passport), and role-based access control.</li>
+      <li>Integrated hardware and IoT systems including a Java-based Camera SDK for automated gantry control, MIFARE Classic 1K smart cards for transit entry validation, and a robot live-streaming platform enabling remote video feed monitoring via web interfaces.</li>
+    </ul>
+  </div>
+
+  <!-- Education -->
+  <div class="section-title">Education</div>
+  <div style="font-size: 8.8pt; line-height: 1.5; color: #334155;">
+    <div style="display: flex; justify-content: space-between;">
+      <span><strong>Bachelor of Commerce (B.Com)</strong> &nbsp;|&nbsp; Thiruvalluvar University, Vellore</span>
+      <span style="color: #64748b; font-weight: 600;">2022</span>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+      <span><strong>Higher Secondary Certificate (HSC)</strong> &nbsp;|&nbsp; NKM Higher Secondary School, Vellore</span>
+      <span style="color: #64748b; font-weight: 600;">2019</span>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+      <span><strong>Secondary School Certificate (SSLC)</strong> &nbsp;|&nbsp; NKM Higher Secondary School, Vellore</span>
+      <span style="color: #64748b; font-weight: 600;">2017</span>
+    </div>
+  </div>
+
+  <!-- Languages -->
+  <div class="section-title">Languages</div>
+  <p style="font-size: 8.8pt; color: #334155; margin: 2px 0 0;">
+    <strong>English</strong> — Professional Proficiency &nbsp;•&nbsp; <strong>Tamil</strong> — Native
+  </p>
+
+</body>
+</html>
