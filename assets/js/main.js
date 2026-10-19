@@ -117,9 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Skills Category Filter
-  const skillTabBtns = document.querySelectorAll('.skill-tab-btn');
-  const skillCategoryCards = document.querySelectorAll('.skill-filter-target');
+  // 5. Skills Category Filter (Logos, No Percentages)
+  const skillTabBtns = document.querySelectorAll('.skill-tab-btn:not(.project-filter-btn)');
+  const skillTiles = document.querySelectorAll('.tech-tile');
 
   skillTabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -128,12 +128,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const filterCategory = btn.getAttribute('data-filter');
 
-      skillCategoryCards.forEach(card => {
-        if (filterCategory === 'all' || card.getAttribute('data-category').includes(filterCategory)) {
-          card.style.display = 'block';
-          card.style.opacity = '1';
+      skillTiles.forEach(tile => {
+        const cat = tile.getAttribute('data-category') || '';
+        if (filterCategory === 'all' || cat.split(' ').includes(filterCategory)) {
+          tile.style.display = 'flex';
+          tile.style.animation = 'fadeIn 0.35s ease forwards';
         } else {
-          card.style.display = 'none';
+          tile.style.display = 'none';
         }
       });
     });

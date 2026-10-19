@@ -38,6 +38,8 @@
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
     <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <!-- Devicon Icons for Technology Logos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
     <!-- Main Stylesheet -->
     <link href="assets/css/main.css" rel="stylesheet" />
@@ -269,152 +271,295 @@
 
           <!-- Category Filter Tabs -->
           <div class="skills-nav-tabs" data-aos="fade-up" data-aos-delay="100">
-            <button class="skill-tab-btn active" data-filter="all">All Skills</button>
+            <button class="skill-tab-btn active" data-filter="all">All Technologies</button>
             <button class="skill-tab-btn" data-filter="backend">Backend & APIs</button>
             <button class="skill-tab-btn" data-filter="frontend">Frontend & UI</button>
-            <button class="skill-tab-btn" data-filter="database">Databases & Caching</button>
+            <button class="skill-tab-btn" data-filter="database">Databases & Storage</button>
             <button class="skill-tab-btn" data-filter="cloud">Cloud & DevOps</button>
             <button class="skill-tab-btn" data-filter="realtime">Real-Time & Security</button>
-            <button class="skill-tab-btn" data-filter="domain">Domain & Methodologies</button>
+            <button class="skill-tab-btn" data-filter="domain">AI & Domains</button>
           </div>
 
-          <!-- Skills Matrix Cards -->
-          <div class="row g-4">
-            <!-- Backend -->
-            <div class="col-lg-4 col-md-6 skill-filter-target" data-category="backend all" data-aos="fade-up" data-aos-delay="100">
-              <div class="glass-card skill-category-card">
-                <div class="skill-cat-header">
-                  <div class="skill-cat-icon"><i class="bi bi-hdd-network"></i></div>
-                  <div>
-                    <h4 class="text-white mb-0">Backend Engineering</h4>
-                    <span class="small text-muted">Core Server-Side Focus</span>
-                  </div>
-                </div>
-                <div class="skill-badge-container">
-                  <span class="tech-badge featured"><i class="bi bi-check2-circle text-info"></i> Node.js</span>
-                  <span class="tech-badge featured"><i class="bi bi-check2-circle text-info"></i> Express.js</span>
-                  <span class="tech-badge featured"><i class="bi bi-check2-circle text-info"></i> PHP / Laravel</span>
-                  <span class="tech-badge">REST API Design</span>
-                  <span class="tech-badge">Microservices</span>
-                  <span class="tech-badge">MVC Architecture</span>
-                  <span class="tech-badge">JWT & OAuth 2.0</span>
-                  <span class="tech-badge">Passport Auth</span>
-                </div>
-              </div>
+          <!-- Technologies Grid with Brand Logos (No Percentages) -->
+          <div class="tech-grid" data-aos="fade-up" data-aos-delay="150">
+            <!-- Node.js -->
+            <div class="tech-tile" data-category="backend all">
+              <div class="tech-tile-icon"><i class="devicon-nodejs-plain colored"></i></div>
+              <h5 class="tech-tile-name">Node.js</h5>
+              <span class="tech-tile-cat">Server Runtime</span>
             </div>
 
-            <!-- Databases & Caching -->
-            <div class="col-lg-4 col-md-6 skill-filter-target" data-category="database all" data-aos="fade-up" data-aos-delay="150">
-              <div class="glass-card skill-category-card">
-                <div class="skill-cat-header">
-                  <div class="skill-cat-icon"><i class="bi bi-database"></i></div>
-                  <div>
-                    <h4 class="text-white mb-0">Databases & Storage</h4>
-                    <span class="small text-muted">Relational & NoSQL</span>
-                  </div>
-                </div>
-                <div class="skill-badge-container">
-                  <span class="tech-badge featured"><i class="bi bi-check2-circle text-info"></i> MongoDB</span>
-                  <span class="tech-badge featured"><i class="bi bi-check2-circle text-info"></i> MySQL</span>
-                  <span class="tech-badge featured"><i class="bi bi-check2-circle text-info"></i> Redis (Caching & Pub/Sub)</span>
-                  <span class="tech-badge">Aggregation Pipelines</span>
-                  <span class="tech-badge">Query Optimization</span>
-                  <span class="tech-badge">Index Management</span>
-                  <span class="tech-badge">PostgreSQL</span>
-                </div>
-              </div>
+            <!-- Express.js -->
+            <div class="tech-tile" data-category="backend all">
+              <div class="tech-tile-icon"><i class="devicon-express-original text-white"></i></div>
+              <h5 class="tech-tile-name">Express.js</h5>
+              <span class="tech-tile-cat">REST Framework</span>
             </div>
 
-            <!-- Frontend -->
-            <div class="col-lg-4 col-md-6 skill-filter-target" data-category="frontend all" data-aos="fade-up" data-aos-delay="200">
-              <div class="glass-card skill-category-card">
-                <div class="skill-cat-header">
-                  <div class="skill-cat-icon"><i class="bi bi-window"></i></div>
-                  <div>
-                    <h4 class="text-white mb-0">Frontend & Client</h4>
-                    <span class="small text-muted">Modern Interactive UI</span>
-                  </div>
-                </div>
-                <div class="skill-badge-container">
-                  <span class="tech-badge featured"><i class="bi bi-check2-circle text-info"></i> React</span>
-                  <span class="tech-badge featured"><i class="bi bi-check2-circle text-info"></i> Redux / Context</span>
-                  <span class="tech-badge">JavaScript (ES6+)</span>
-                  <span class="tech-badge">Tailwind CSS</span>
-                  <span class="tech-badge">HTML5 & CSS3</span>
-                  <span class="tech-badge">Bootstrap 5</span>
-                  <span class="tech-badge">SCSS</span>
-                  <span class="tech-badge">jQuery</span>
-                </div>
-              </div>
+            <!-- Laravel -->
+            <div class="tech-tile" data-category="backend all">
+              <div class="tech-tile-icon"><i class="devicon-laravel-original colored"></i></div>
+              <h5 class="tech-tile-name">Laravel</h5>
+              <span class="tech-tile-cat">PHP Framework</span>
             </div>
 
-            <!-- Cloud & DevOps -->
-            <div class="col-lg-4 col-md-6 skill-filter-target" data-category="cloud all" data-aos="fade-up" data-aos-delay="250">
-              <div class="glass-card skill-category-card">
-                <div class="skill-cat-header">
-                  <div class="skill-cat-icon"><i class="bi bi-cloud-check"></i></div>
-                  <div>
-                    <h4 class="text-white mb-0">Cloud & DevOps</h4>
-                    <span class="small text-muted">Hosting & Automation</span>
-                  </div>
-                </div>
-                <div class="skill-badge-container">
-                  <span class="tech-badge featured"><i class="bi bi-check2-circle text-info"></i> AWS EC2</span>
-                  <span class="tech-badge featured"><i class="bi bi-check2-circle text-info"></i> AWS S3</span>
-                  <span class="tech-badge">CloudFront CDN</span>
-                  <span class="tech-badge">Linux Administration</span>
-                  <span class="tech-badge">Git & GitHub Actions</span>
-                  <span class="tech-badge">Bitbucket Pipelines</span>
-                  <span class="tech-badge">CI/CD Workflows</span>
-                </div>
-              </div>
+            <!-- PHP -->
+            <div class="tech-tile" data-category="backend all">
+              <div class="tech-tile-icon"><i class="devicon-php-plain colored"></i></div>
+              <h5 class="tech-tile-name">PHP 8+</h5>
+              <span class="tech-tile-cat">Backend Language</span>
             </div>
 
-            <!-- Real-Time & Security -->
-            <div class="col-lg-4 col-md-6 skill-filter-target" data-category="realtime all" data-aos="fade-up" data-aos-delay="300">
-              <div class="glass-card skill-category-card">
-                <div class="skill-cat-header">
-                  <div class="skill-cat-icon"><i class="bi bi-shield-lock"></i></div>
-                  <div>
-                    <h4 class="text-white mb-0">Real-Time & Security</h4>
-                    <span class="small text-muted">Sockets & Protection</span>
-                  </div>
-                </div>
-                <div class="skill-badge-container">
-                  <span class="tech-badge featured"><i class="bi bi-check2-circle text-info"></i> Socket.IO</span>
-                  <span class="tech-badge">WebSocket</span>
-                  <span class="tech-badge">Pusher</span>
-                  <span class="tech-badge">RBAC Access Control</span>
-                  <span class="tech-badge">Field-Level Encryption</span>
-                  <span class="tech-badge">Rate Limiting</span>
-                  <span class="tech-badge">Secure Bid Shielding</span>
-                  <span class="tech-badge">WhatsApp Business API</span>
-                  <span class="tech-badge">Razorpay & PayPal</span>
-                </div>
-              </div>
+            <!-- REST APIs -->
+            <div class="tech-tile" data-category="backend all">
+              <div class="tech-tile-icon"><i class="bi bi-diagram-3-fill text-info"></i></div>
+              <h5 class="tech-tile-name">RESTful APIs</h5>
+              <span class="tech-tile-cat">API Architecture</span>
             </div>
 
-            <!-- Domain Knowledge & AI -->
-            <div class="col-lg-4 col-md-6 skill-filter-target" data-category="domain all" data-aos="fade-up" data-aos-delay="350">
-              <div class="glass-card skill-category-card">
-                <div class="skill-cat-header">
-                  <div class="skill-cat-icon"><i class="bi bi-briefcase"></i></div>
-                  <div>
-                    <h4 class="text-white mb-0">Domain & Tools</h4>
-                    <span class="small text-muted">Methodologies & AI</span>
-                  </div>
-                </div>
-                <div class="skill-badge-container">
-                  <span class="tech-badge featured"><i class="bi bi-stars text-warning"></i> Claude Code (AI)</span>
-                  <span class="tech-badge">ERP (Finance & HR)</span>
-                  <span class="tech-badge">KYC/AML Compliance</span>
-                  <span class="tech-badge">Govt Procurement</span>
-                  <span class="tech-badge">Agile / Scrum</span>
-                  <span class="tech-badge">Structured Code Reviews</span>
-                  <span class="tech-badge">Java Camera SDK & IoT</span>
-                  <span class="tech-badge">RFID Transit Cards</span>
-                </div>
-              </div>
+            <!-- Microservices -->
+            <div class="tech-tile" data-category="backend all">
+              <div class="tech-tile-icon"><i class="bi bi-boxes text-primary"></i></div>
+              <h5 class="tech-tile-name">Microservices</h5>
+              <span class="tech-tile-cat">System Design</span>
+            </div>
+
+            <!-- MVC Architecture -->
+            <div class="tech-tile" data-category="backend all">
+              <div class="tech-tile-icon"><i class="bi bi-layout-text-window-reverse text-success"></i></div>
+              <h5 class="tech-tile-name">MVC Architecture</h5>
+              <span class="tech-tile-cat">Design Pattern</span>
+            </div>
+
+            <!-- React -->
+            <div class="tech-tile" data-category="frontend all">
+              <div class="tech-tile-icon"><i class="devicon-react-original colored"></i></div>
+              <h5 class="tech-tile-name">React.js</h5>
+              <span class="tech-tile-cat">Frontend UI</span>
+            </div>
+
+            <!-- Redux -->
+            <div class="tech-tile" data-category="frontend all">
+              <div class="tech-tile-icon"><i class="devicon-redux-original colored"></i></div>
+              <h5 class="tech-tile-name">Redux</h5>
+              <span class="tech-tile-cat">State Management</span>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="tech-tile" data-category="frontend all">
+              <div class="tech-tile-icon"><i class="devicon-javascript-plain colored"></i></div>
+              <h5 class="tech-tile-name">JavaScript</h5>
+              <span class="tech-tile-cat">ES6+ Modern JS</span>
+            </div>
+
+            <!-- Tailwind CSS -->
+            <div class="tech-tile" data-category="frontend all">
+              <div class="tech-tile-icon"><i class="devicon-tailwindcss-original colored"></i></div>
+              <h5 class="tech-tile-name">Tailwind CSS</h5>
+              <span class="tech-tile-cat">Utility CSS</span>
+            </div>
+
+            <!-- Bootstrap 5 -->
+            <div class="tech-tile" data-category="frontend all">
+              <div class="tech-tile-icon"><i class="devicon-bootstrap-plain colored"></i></div>
+              <h5 class="tech-tile-name">Bootstrap 5</h5>
+              <span class="tech-tile-cat">UI Framework</span>
+            </div>
+
+            <!-- HTML5 -->
+            <div class="tech-tile" data-category="frontend all">
+              <div class="tech-tile-icon"><i class="devicon-html5-plain colored"></i></div>
+              <h5 class="tech-tile-name">HTML5</h5>
+              <span class="tech-tile-cat">Semantic Web</span>
+            </div>
+
+            <!-- CSS3 -->
+            <div class="tech-tile" data-category="frontend all">
+              <div class="tech-tile-icon"><i class="devicon-css3-plain colored"></i></div>
+              <h5 class="tech-tile-name">CSS3 & SCSS</h5>
+              <span class="tech-tile-cat">Modern Styling</span>
+            </div>
+
+            <!-- jQuery -->
+            <div class="tech-tile" data-category="frontend all">
+              <div class="tech-tile-icon"><i class="devicon-jquery-plain colored"></i></div>
+              <h5 class="tech-tile-name">jQuery</h5>
+              <span class="tech-tile-cat">DOM Scripting</span>
+            </div>
+
+            <!-- MongoDB -->
+            <div class="tech-tile" data-category="database all">
+              <div class="tech-tile-icon"><i class="devicon-mongodb-plain colored"></i></div>
+              <h5 class="tech-tile-name">MongoDB</h5>
+              <span class="tech-tile-cat">NoSQL Database</span>
+            </div>
+
+            <!-- MySQL -->
+            <div class="tech-tile" data-category="database all">
+              <div class="tech-tile-icon"><i class="devicon-mysql-original colored"></i></div>
+              <h5 class="tech-tile-name">MySQL</h5>
+              <span class="tech-tile-cat">Relational DB</span>
+            </div>
+
+            <!-- PostgreSQL -->
+            <div class="tech-tile" data-category="database all">
+              <div class="tech-tile-icon"><i class="devicon-postgresql-plain colored"></i></div>
+              <h5 class="tech-tile-name">PostgreSQL</h5>
+              <span class="tech-tile-cat">Relational DB</span>
+            </div>
+
+            <!-- Redis -->
+            <div class="tech-tile" data-category="database all">
+              <div class="tech-tile-icon"><i class="devicon-redis-plain colored"></i></div>
+              <h5 class="tech-tile-name">Redis</h5>
+              <span class="tech-tile-cat">Caching & Pub/Sub</span>
+            </div>
+
+            <!-- Aggregation Pipelines -->
+            <div class="tech-tile" data-category="database all">
+              <div class="tech-tile-icon"><i class="bi bi-funnel-fill text-warning"></i></div>
+              <h5 class="tech-tile-name">Aggregations</h5>
+              <span class="tech-tile-cat">Pipeline Tuning</span>
+            </div>
+
+            <!-- AWS EC2 -->
+            <div class="tech-tile" data-category="cloud all">
+              <div class="tech-tile-icon"><i class="devicon-amazonwebservices-plain-wordmark colored"></i></div>
+              <h5 class="tech-tile-name">AWS EC2</h5>
+              <span class="tech-tile-cat">Cloud Compute</span>
+            </div>
+
+            <!-- AWS S3 -->
+            <div class="tech-tile" data-category="cloud all">
+              <div class="tech-tile-icon"><i class="bi bi-cloud-arrow-up-fill text-warning"></i></div>
+              <h5 class="tech-tile-name">AWS S3</h5>
+              <span class="tech-tile-cat">Cloud Storage</span>
+            </div>
+
+            <!-- Linux -->
+            <div class="tech-tile" data-category="cloud all">
+              <div class="tech-tile-icon"><i class="devicon-linux-plain text-white"></i></div>
+              <h5 class="tech-tile-name">Linux</h5>
+              <span class="tech-tile-cat">Server Admin</span>
+            </div>
+
+            <!-- Git -->
+            <div class="tech-tile" data-category="cloud all">
+              <div class="tech-tile-icon"><i class="devicon-git-plain colored"></i></div>
+              <h5 class="tech-tile-name">Git</h5>
+              <span class="tech-tile-cat">Version Control</span>
+            </div>
+
+            <!-- GitHub Actions -->
+            <div class="tech-tile" data-category="cloud all">
+              <div class="tech-tile-icon"><i class="devicon-github-original text-white"></i></div>
+              <h5 class="tech-tile-name">GitHub Actions</h5>
+              <span class="tech-tile-cat">CI/CD Pipelines</span>
+            </div>
+
+            <!-- Bitbucket -->
+            <div class="tech-tile" data-category="cloud all">
+              <div class="tech-tile-icon"><i class="devicon-bitbucket-original colored"></i></div>
+              <h5 class="tech-tile-name">Bitbucket</h5>
+              <span class="tech-tile-cat">VCS & Pipelines</span>
+            </div>
+
+            <!-- Socket.IO -->
+            <div class="tech-tile" data-category="realtime all">
+              <div class="tech-tile-icon"><i class="devicon-socketio-original text-white"></i></div>
+              <h5 class="tech-tile-name">Socket.IO</h5>
+              <span class="tech-tile-cat">Real-Time Sockets</span>
+            </div>
+
+            <!-- WebSockets -->
+            <div class="tech-tile" data-category="realtime all">
+              <div class="tech-tile-icon"><i class="bi bi-broadcast text-info"></i></div>
+              <h5 class="tech-tile-name">WebSockets</h5>
+              <span class="tech-tile-cat">Event Streaming</span>
+            </div>
+
+            <!-- Firebase -->
+            <div class="tech-tile" data-category="realtime all">
+              <div class="tech-tile-icon"><i class="devicon-firebase-plain colored"></i></div>
+              <h5 class="tech-tile-name">Firebase</h5>
+              <span class="tech-tile-cat">Push Notifications</span>
+            </div>
+
+            <!-- WhatsApp API -->
+            <div class="tech-tile" data-category="realtime all">
+              <div class="tech-tile-icon"><i class="bi bi-whatsapp text-success"></i></div>
+              <h5 class="tech-tile-name">WhatsApp API</h5>
+              <span class="tech-tile-cat">Business Alerts</span>
+            </div>
+
+            <!-- JWT & OAuth 2.0 -->
+            <div class="tech-tile" data-category="realtime all">
+              <div class="tech-tile-icon"><i class="bi bi-shield-lock-fill text-success"></i></div>
+              <h5 class="tech-tile-name">JWT & OAuth 2.0</h5>
+              <span class="tech-tile-cat">Auth & Security</span>
+            </div>
+
+            <!-- RBAC Access Control -->
+            <div class="tech-tile" data-category="realtime all">
+              <div class="tech-tile-icon"><i class="bi bi-person-lock text-info"></i></div>
+              <h5 class="tech-tile-name">RBAC Security</h5>
+              <span class="tech-tile-cat">Role Access Control</span>
+            </div>
+
+            <!-- Field-Level Encryption -->
+            <div class="tech-tile" data-category="realtime all">
+              <div class="tech-tile-icon"><i class="bi bi-key-fill text-warning"></i></div>
+              <h5 class="tech-tile-name">Field Encryption</h5>
+              <span class="tech-tile-cat">Data Security</span>
+            </div>
+
+            <!-- Payment Gateways -->
+            <div class="tech-tile" data-category="realtime all">
+              <div class="tech-tile-icon"><i class="bi bi-credit-card-2-front-fill text-primary"></i></div>
+              <h5 class="tech-tile-name">Payment Gateways</h5>
+              <span class="tech-tile-cat">Razorpay & PayPal</span>
+            </div>
+
+            <!-- Claude Code -->
+            <div class="tech-tile" data-category="domain all">
+              <div class="tech-tile-icon"><i class="bi bi-stars text-warning"></i></div>
+              <h5 class="tech-tile-name">Claude Code</h5>
+              <span class="tech-tile-cat">AI-Assisted Dev</span>
+            </div>
+
+            <!-- Cooperative ERP -->
+            <div class="tech-tile" data-category="domain all">
+              <div class="tech-tile-icon"><i class="bi bi-bank text-info"></i></div>
+              <h5 class="tech-tile-name">Cooperative ERP</h5>
+              <span class="tech-tile-cat">Finance & Banking</span>
+            </div>
+
+            <!-- KYC / AML Engine -->
+            <div class="tech-tile" data-category="domain all">
+              <div class="tech-tile-icon"><i class="bi bi-fingerprint text-success"></i></div>
+              <h5 class="tech-tile-name">KYC & AML</h5>
+              <span class="tech-tile-cat">Verification Engine</span>
+            </div>
+
+            <!-- Government E-Procurement -->
+            <div class="tech-tile" data-category="domain all">
+              <div class="tech-tile-icon"><i class="bi bi-building-check text-warning"></i></div>
+              <h5 class="tech-tile-name">Govt Procurement</h5>
+              <span class="tech-tile-cat">Store Automation</span>
+            </div>
+
+            <!-- Hardware & IoT -->
+            <div class="tech-tile" data-category="domain all">
+              <div class="tech-tile-icon"><i class="bi bi-cpu-fill text-danger"></i></div>
+              <h5 class="tech-tile-name">Camera & RFID</h5>
+              <span class="tech-tile-cat">Hardware & IoT</span>
+            </div>
+
+            <!-- Agile / Scrum -->
+            <div class="tech-tile" data-category="domain all">
+              <div class="tech-tile-icon"><i class="bi bi-kanban-fill text-primary"></i></div>
+              <h5 class="tech-tile-name">Agile & Scrum</h5>
+              <span class="tech-tile-cat">Delivery Practice</span>
             </div>
           </div>
         </div>
