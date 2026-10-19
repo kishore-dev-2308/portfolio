@@ -510,40 +510,6 @@ li.text-body {
   transform: scale(1.03);
 }
 
-.floating-badge {
-  position: absolute;
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 8px 14px;
-  border-radius: var(--radius-md);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-main);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-  animation: float-slow 4s ease-in-out infinite alternate;
-  z-index: 2;
-}
-
-.floating-badge.badge-top-right {
-  top: 20px;
-  right: -20px;
-}
-
-.floating-badge.badge-bottom-left {
-  bottom: 25px;
-  left: -20px;
-  animation-delay: -2s;
-}
-
-@keyframes float-slow {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
-}
 
 /* ==============================================================
    Stats / Highlights Ticker
@@ -1271,15 +1237,6 @@ li.text-body {
     height: 380px;
   }
 
-  .floating-badge.badge-top-right {
-    right: 8px;
-    top: 10px;
-  }
-
-  .floating-badge.badge-bottom-left {
-    left: 8px;
-    bottom: 10px;
-  }
 
   .stats-strip {
     padding: 24px 0;
