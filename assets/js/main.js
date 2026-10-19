@@ -9,10 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize AOS (Animate on Scroll)
   if (typeof AOS !== 'undefined') {
     AOS.init({
-      duration: 700,
+      duration: 600,
       easing: 'ease-out-cubic',
       once: true,
-      offset: 50,
+      offset: 30,
+      disable: () => window.innerWidth < 768
     });
   }
 
@@ -42,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.querySelector('.custom-navbar');
   const navLinks = document.querySelectorAll('.nav-link-item');
   const sections = document.querySelectorAll('section[id]');
-  const scrollTopBtn = document.getElementById('scrollTopBtn');
 
   function handleScroll() {
     const scrollY = window.scrollY;
@@ -53,15 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
-      }
-    }
-
-    // Scroll-to-top button visibility
-    if (scrollTopBtn) {
-      if (scrollY > 350) {
-        scrollTopBtn.classList.add('visible');
-      } else {
-        scrollTopBtn.classList.remove('visible');
       }
     }
 
@@ -85,16 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll(); // Trigger once on page load
-
-  // Scroll to top action
-  if (scrollTopBtn) {
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
 
   // Smooth scroll for all in-page anchor navigation links & trigger AOS refresh
   document.querySelectorAll('a[href^="#"]').forEach(link => {
