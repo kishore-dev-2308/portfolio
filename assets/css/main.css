@@ -419,11 +419,25 @@ li.text-body {
 }
 
 .hero-typing-wrap {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--accent-cyan);
   margin-bottom: 20px;
-  min-height: 48px;
+  min-height: 2.2em;
+  line-height: 1.35;
+  display: block;
+}
+
+.typed-cursor {
+  color: var(--accent-cyan);
+  font-weight: 300;
+  margin-left: 2px;
+  animation: typed-blink 0.8s infinite;
+}
+
+@keyframes typed-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .hero-description {
@@ -1286,7 +1300,8 @@ li.text-body {
   }
 
   .hero-typing-wrap {
-    min-height: 56px;
+    min-height: 2.6em;
+    font-size: clamp(1.1rem, 5vw, 1.35rem);
   }
 
   .hero-cta-group {

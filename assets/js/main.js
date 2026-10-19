@@ -21,15 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typedTarget && typeof Typed !== 'undefined') {
     new Typed('.typed-hero', {
       strings: [
-        'Backend-Focused Full Stack Developer',
-        'Node.js & Express.js Specialist',
+        'Full Stack Developer',
+        'Backend & Node.js Specialist',
         'Laravel & PHP Architect',
-        'MERN Stack & Real-Time Systems Engineer',
-        'Cloud & RESTful API Designer'
+        'MERN Stack Engineer',
+        'RESTful API & Cloud Designer'
       ],
-      typeSpeed: 55,
-      backSpeed: 30,
-      backDelay: 2200,
+      typeSpeed: 60,
+      backSpeed: 35,
+      backDelay: 2000,
+      startDelay: 300,
+      smartBackspace: false,
       loop: true,
       showCursor: true,
       cursorChar: '|'
