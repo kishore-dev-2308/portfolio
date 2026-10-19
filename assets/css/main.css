@@ -866,6 +866,7 @@ li.text-body {
   justify-content: space-between;
   padding-top: 16px;
   border-top: 1px solid var(--border-subtle);
+  margin-top: auto;
 }
 
 /* ==============================================================

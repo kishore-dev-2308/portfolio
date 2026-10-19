@@ -568,24 +568,33 @@
       <section id="projects" class="section-wrapper">
         <div class="container">
           <div class="section-header" data-aos="fade-up">
-            <span class="section-tag"><i class="bi bi-layers-half"></i> Proven Deliverables</span>
-            <h2 class="section-title">Featured Enterprise Projects</h2>
+            <span class="section-tag"><i class="bi bi-layers-half"></i> Portfolio Showcase</span>
+            <h2 class="section-title">Projects & Live Applications</h2>
             <p class="section-subtitle">
-              Mission-critical platforms built for government agencies, cooperative societies, and financial compliance.
+              Enterprise platforms engineered for government & finance, alongside interactive real-time personal applications.
             </p>
           </div>
 
           <!-- Project Filter Controls -->
           <div class="skills-nav-tabs" data-aos="fade-up" data-aos-delay="100">
             <button class="skill-tab-btn project-filter-btn active" data-filter="all">All Projects</button>
+            <button class="skill-tab-btn project-filter-btn" data-filter="personal">Personal & Live Apps</button>
             <button class="skill-tab-btn project-filter-btn" data-filter="erp">Enterprise ERP</button>
             <button class="skill-tab-btn project-filter-btn" data-filter="govt">Government Procurement</button>
             <button class="skill-tab-btn project-filter-btn" data-filter="fintech">FinTech & KYC</button>
             <button class="skill-tab-btn project-filter-btn" data-filter="iot">IoT & Hardware</button>
           </div>
 
-          <!-- Project Cards Grid -->
-          <div class="row g-4">
+          <!-- Enterprise Projects Subheading -->
+          <div id="enterpriseProjectsHeading" class="d-flex align-items-center justify-content-between mb-4" data-aos="fade-up">
+            <h3 class="text-white fw-bold mb-0" style="font-size: 1.35rem;">
+              <i class="bi bi-building text-info me-2"></i> Enterprise & Institution Platforms
+            </h3>
+            <span class="text-muted small">Production Architecture</span>
+          </div>
+
+          <!-- Project Cards Grid (Enterprise) -->
+          <div class="row g-4 mb-5">
             <!-- Project 1: Cooperative Society ERP -->
             <div class="col-lg-6 project-filter-card" data-category="erp" data-aos="fade-up" data-aos-delay="100">
               <div class="glass-card project-card">
@@ -773,6 +782,177 @@
                     <i class="bi bi-info-circle"></i> View Architecture & Details
                   </button>
                   <span class="text-muted small"><i class="bi bi-cpu-fill text-info"></i> Hardware + Cloud</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personal Projects Subheading & Divider -->
+          <div id="personalProjectsHeading" class="sub-section-divider mt-4 mb-4" data-aos="fade-up">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pb-3 border-bottom border-secondary">
+              <div>
+                <span class="section-tag mb-2"><i class="bi bi-laptop-fill"></i> Interactive Deployments</span>
+                <h3 class="text-white fw-bold mb-1" style="font-size: 1.35rem;">
+                  <i class="bi bi-code-slash text-warning me-2"></i> Personal Projects & Live Applications
+                </h3>
+                <p class="text-muted small mb-0">Production-deployed full-stack web applications featuring real-time websockets, live updates, and responsive UI.</p>
+              </div>
+              <div class="d-none d-md-block">
+                <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
+                  <span class="pulse-dot d-inline-block me-1"></span> 3 Live Demos Available
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personal Project Cards Grid -->
+          <div class="row g-4" id="personalProjectsGrid">
+            <!-- Project 1: QuickBite -->
+            <div class="col-lg-4 col-md-6 project-filter-card" data-category="personal" data-aos="fade-up" data-aos-delay="100">
+              <div class="glass-card project-card">
+                <div class="project-top">
+                  <span class="project-category-tag text-warning border-warning-subtle">Real-Time Food Ordering</span>
+                  <i class="bi bi-bag-check-fill text-warning fs-4"></i>
+                </div>
+                <h3 class="project-title" style="font-size: 1.25rem;">QuickBite — Food Delivery & Live Status</h3>
+                <p class="project-desc">
+                  Interactive real-time food ordering web platform engineered with dynamic menu browsing, reactive cart state management, and real-time live order updates.
+                </p>
+
+                <div class="project-metrics-box">
+                  <div class="project-metric-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span><strong>Live Order Updates:</strong> Real-time status changes and order progression tracking.</span>
+                  </div>
+                  <div class="project-metric-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span><strong>Reactive Cart:</strong> Instant calculation of menu items, taxes, and pricing.</span>
+                  </div>
+                  <div class="project-metric-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span><strong>Modern UI / UX:</strong> Mobile-responsive interface styled with Tailwind CSS.</span>
+                  </div>
+                </div>
+
+                <div class="project-stack-wrap">
+                  <span class="stack-tag">React</span>
+                  <span class="stack-tag">Node.js</span>
+                  <span class="stack-tag">Express.js</span>
+                  <span class="stack-tag">Socket.IO</span>
+                  <span class="stack-tag">Tailwind CSS</span>
+                  <span class="stack-tag">Vercel</span>
+                </div>
+
+                <div class="project-footer-actions">
+                  <div class="d-flex gap-2">
+                    <a href="https://quickbite-frontend-one.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary-glow btn-sm">
+                      <i class="bi bi-box-arrow-up-right"></i> Live Demo
+                    </a>
+                    <a href="https://github.com/kishore-dev-2308/quickbite-frontend" target="_blank" rel="noopener noreferrer" class="btn-glass btn-sm" title="View GitHub Repository">
+                      <i class="bi bi-github"></i> Code
+                    </a>
+                  </div>
+                  <span class="text-success small"><span class="pulse-dot d-inline-block me-1"></span> Live</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2: Real-Time Chat App -->
+            <div class="col-lg-4 col-md-6 project-filter-card" data-category="personal" data-aos="fade-up" data-aos-delay="150">
+              <div class="glass-card project-card">
+                <div class="project-top">
+                  <span class="project-category-tag text-info border-info-subtle">Instant Messaging</span>
+                  <i class="bi bi-chat-dots-fill text-info fs-4"></i>
+                </div>
+                <h3 class="project-title" style="font-size: 1.25rem;">Real-Time Chat Application</h3>
+                <p class="project-desc">
+                  Full-duplex real-time instant chat platform featuring user sign-in authentication, active socket connections, instant message dispatching, and persistent threads.
+                </p>
+
+                <div class="project-metrics-box">
+                  <div class="project-metric-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span><strong>Low-Latency Messaging:</strong> Bi-directional instant chat communication with Socket.IO.</span>
+                  </div>
+                  <div class="project-metric-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span><strong>User Authentication:</strong> Secure user sign-in and session-protected chat rooms.</span>
+                  </div>
+                  <div class="project-metric-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span><strong>Live Presence:</strong> Active online user status and instant notification badges.</span>
+                  </div>
+                </div>
+
+                <div class="project-stack-wrap">
+                  <span class="stack-tag">React</span>
+                  <span class="stack-tag">Node.js</span>
+                  <span class="stack-tag">Express.js</span>
+                  <span class="stack-tag">Socket.IO</span>
+                  <span class="stack-tag">JWT</span>
+                  <span class="stack-tag">Vercel</span>
+                </div>
+
+                <div class="project-footer-actions">
+                  <div class="d-flex gap-2">
+                    <a href="https://kishore-chat-app.vercel.app/sign-in" target="_blank" rel="noopener noreferrer" class="btn-primary-glow btn-sm">
+                      <i class="bi bi-box-arrow-up-right"></i> Live Demo
+                    </a>
+                    <a href="https://github.com/kishore-dev-2308/chat-app" target="_blank" rel="noopener noreferrer" class="btn-glass btn-sm" title="View GitHub Repository">
+                      <i class="bi bi-github"></i> Code
+                    </a>
+                  </div>
+                  <span class="text-success small"><span class="pulse-dot d-inline-block me-1"></span> Live</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3: TechStream Blog -->
+            <div class="col-lg-4 col-md-6 project-filter-card" data-category="personal" data-aos="fade-up" data-aos-delay="200">
+              <div class="glass-card project-card">
+                <div class="project-top">
+                  <span class="project-category-tag text-primary border-primary-subtle">Publishing & Content</span>
+                  <i class="bi bi-newspaper text-primary fs-4"></i>
+                </div>
+                <h3 class="project-title" style="font-size: 1.25rem;">TechStream — Tech Blog Platform</h3>
+                <p class="project-desc">
+                  Modern technology publication and developer blog site offering categorized tech streams, responsive reader layouts, and dynamic article feeds.
+                </p>
+
+                <div class="project-metrics-box">
+                  <div class="project-metric-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span><strong>Categorized Streams:</strong> Article filtering across frontend, backend, and DevOps.</span>
+                  </div>
+                  <div class="project-metric-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span><strong>Vite-Powered Frontend:</strong> Lightning-fast page loads and optimized asset bundle.</span>
+                  </div>
+                  <div class="project-metric-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span><strong>REST API Driven:</strong> Structured backend data feeds and modular article components.</span>
+                  </div>
+                </div>
+
+                <div class="project-stack-wrap">
+                  <span class="stack-tag">React</span>
+                  <span class="stack-tag">Vite</span>
+                  <span class="stack-tag">Node.js</span>
+                  <span class="stack-tag">Express.js</span>
+                  <span class="stack-tag">CSS3</span>
+                  <span class="stack-tag">Netlify</span>
+                </div>
+
+                <div class="project-footer-actions">
+                  <div class="d-flex gap-2">
+                    <a href="https://techstream-blog.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-primary-glow btn-sm">
+                      <i class="bi bi-box-arrow-up-right"></i> Live Demo
+                    </a>
+                    <a href="https://github.com/kishore-dev-2308/blog-site" target="_blank" rel="noopener noreferrer" class="btn-glass btn-sm" title="View GitHub Repository">
+                      <i class="bi bi-github"></i> Code
+                    </a>
+                  </div>
+                  <span class="text-success small"><span class="pulse-dot d-inline-block me-1"></span> Live</span>
                 </div>
               </div>
             </div>

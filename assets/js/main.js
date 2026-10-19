@@ -179,6 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. Projects Category Filter
   const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
   const projectCards = document.querySelectorAll('.project-filter-card');
+  const personalHeader = document.getElementById('personalProjectsHeading');
+  const enterpriseHeader = document.getElementById('enterpriseProjectsHeading');
 
   projectFilterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -188,13 +190,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const filterVal = btn.getAttribute('data-filter');
 
       projectCards.forEach(card => {
-        if (filterVal === 'all' || card.getAttribute('data-category') === filterVal) {
+        const cardCat = card.getAttribute('data-category') || '';
+        if (filterVal === 'all' || cardCat.split(' ').includes(filterVal)) {
           card.style.display = 'block';
           card.style.animation = 'fadeIn 0.4s ease forwards';
         } else {
           card.style.display = 'none';
         }
       });
+
+      if (enterpriseHeader) {
+        enterpriseHeader.style.display = (filterVal === 'personal') ? 'none' : 'flex';
+      }
+
+      if (personalHeader) {
+        personalHeader.style.display = (filterVal !== 'all' && filterVal !== 'personal') ? 'none' : 'block';
+      }
     });
   });
 
