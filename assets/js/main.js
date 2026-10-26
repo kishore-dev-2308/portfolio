@@ -242,13 +242,14 @@ document.addEventListener('DOMContentLoaded', () => {
       emailjs.init('nKy3xqbVwMeIZjocG');
     }
 
-    emailForm.addEventListener('submit', function(e) {
+    emailForm.addEventListener('submit', async function(e) {
       e.preventDefault();
 
       const nameVal = nameField ? nameField.value.trim() : '';
       const emailVal = emailField ? emailField.value.trim() : '';
       const subjectVal = subjectField && subjectField.value.trim() ? subjectField.value.trim() : 'Portfolio Contact Inquiry';
       const msgVal = messageField ? messageField.value.trim() : '';
+      const recipientEmail = 'kishore787120@gmail.com';
 
       if (!nameVal || !emailVal || !msgVal) {
         Swal.fire({
@@ -267,51 +268,104 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
       submitBtn.disabled = true;
 
-      // Send via EmailJS with all common template parameter aliases
-      emailjs.send('service_fuelwwp', 'template_e69v7yp', {
-        name: nameVal,
-        from_name: nameVal,
-        title: subjectVal,
-        subject: subjectVal,
-        to_email: emailVal,
-        from_email: emailVal,
-        reply_to: emailVal,
-        email: emailVal,
-        message: msgVal
-      })
-      .then(function(response) {
+      let sentSuccessfully = false;
+      let activationNotice = false;
+
+      // 1. Primary Direct Route: FormSubmit API directed to kishore787120@gmail.com
+      try {
+        const formSubmitRes = await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: nameVal,
+            email: emailVal,
+            _replyto: emailVal,
+            _subject: `Portfolio Message from ${nameVal}: ${subjectVal}`,
+            _captcha: 'false',
+            _template: 'table',
+            message: msgVal
+          })
+        });
+
+        if (formSubmitRes.ok) {
+          const resData = await formSubmitRes.json();
+          if (resData.success === 'true' || resData.success === true) {
+            sentSuccessfully = true;
+          } else if (resData.message && resData.message.includes('Activation')) {
+            activationNotice = true;
+          }
+        }
+      } catch (fsErr) {
+        console.warn('Direct FormSubmit attempt:', fsErr);
+      }
+
+      // 2. Secondary Direct Route: EmailJS with to_email explicitly set to kishore787120@gmail.com
+      if (!sentSuccessfully && typeof emailjs !== 'undefined') {
+        try {
+          await emailjs.send('service_fuelwwp', 'template_e69v7yp', {
+            name: nameVal,
+            from_name: nameVal,
+            title: subjectVal,
+            subject: subjectVal,
+            to_email: recipientEmail,
+            recipient: recipientEmail,
+            reply_to: emailVal,
+            from_email: emailVal,
+            user_email: emailVal,
+            email: emailVal,
+            message: msgVal
+          });
+          sentSuccessfully = true;
+        } catch (emailJsErr) {
+          console.warn('EmailJS attempt:', emailJsErr);
+        }
+      }
+
+      submitBtn.innerHTML = originalBtnText;
+      submitBtn.disabled = false;
+
+      if (sentSuccessfully) {
         Swal.fire({
           icon: 'success',
           title: 'Message Sent Successfully!',
-          text: 'Thank you for reaching out, Kishore will get back to you promptly.',
+          text: `Thank you for reaching out! Your message was delivered directly to ${recipientEmail}.`,
           background: '#0f172a',
           color: '#f8fafc',
           confirmButtonColor: '#38bdf8'
         });
 
-        // Reset form and sync WhatsApp button
         emailForm.reset();
         updateWhatsAppHref();
-      })
-      .catch(function(error) {
-        console.error('Email gateway dispatch notice:', error);
-
+      } else if (activationNotice) {
+        Swal.fire({
+          icon: 'info',
+          title: 'Activation Confirmation Sent',
+          text: `A 1-time activation email was sent to ${recipientEmail}. Please click "Activate Form" in your Gmail inbox to enable instant message forwarding.`,
+          background: '#0f172a',
+          color: '#f8fafc',
+          confirmButtonColor: '#38bdf8'
+        });
+      } else {
+        // Direct Action Fallback: WhatsApp & Mailto directly addressing kishore787120@gmail.com
         const waUrl = `https://wa.me/919344291464?text=${encodeURIComponent(`Hi Kishore, I'm ${nameVal} (${emailVal}). Regarding: ${subjectVal}.\n\n${msgVal}`)}`;
-        const mailtoUrl = `mailto:kishore787120@gmail.com?subject=${encodeURIComponent(subjectVal)}&body=${encodeURIComponent(`Hi Kishore,\n\nName: ${nameVal}\nEmail: ${emailVal}\n\nMessage:\n${msgVal}`)}`;
+        const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(subjectVal)}&body=${encodeURIComponent(`Hi Kishore,\n\nName: ${nameVal}\nEmail: ${emailVal}\n\nMessage:\n${msgVal}`)}`;
 
         Swal.fire({
           icon: 'info',
           title: 'Direct Message Dispatch',
           html: `
             <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 18px; line-height: 1.5;">
-              To ensure your message reaches Kishore immediately without any mail server delay, choose your preferred direct channel:
+              Send your message directly to <strong>${recipientEmail}</strong> or connect instantly via WhatsApp:
             </p>
             <div style="display: flex; flex-direction: column; gap: 10px;">
               <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary-glow" style="display: inline-flex; justify-content: center; align-items: center; gap: 8px; text-decoration: none; padding: 12px 20px; border-radius: 9999px; font-weight: 600;">
                 <i class="bi bi-whatsapp"></i> Send via WhatsApp Directly
               </a>
               <a href="${mailtoUrl}" class="btn-glass" style="display: inline-flex; justify-content: center; align-items: center; gap: 8px; text-decoration: none; padding: 12px 20px; border-radius: 9999px; font-weight: 600;">
-                <i class="bi bi-envelope-at-fill text-info"></i> Send via Email Client
+                <i class="bi bi-envelope-at-fill text-info"></i> Send to ${recipientEmail}
               </a>
             </div>
           `,
@@ -320,11 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
           background: '#0f172a',
           color: '#f8fafc'
         });
-      })
-      .finally(function() {
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
-      });
+      }
     });
   }
 });
