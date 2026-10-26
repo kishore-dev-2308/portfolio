@@ -209,10 +209,35 @@ document.addEventListener('DOMContentLoaded', () => {
     expElem.textContent = `${calculatedExp}+`;
   }
 
-  // 8. EmailJS Contact Form Submission
+  // 8. Direct Contact Message Submission
   const emailForm = document.getElementById('contactForm');
   if (emailForm) {
-    // Initialize EmailJS with your active public key
+    const nameField = document.getElementById('formName');
+    const emailField = document.getElementById('formEmail');
+    const subjectField = document.getElementById('formSubject');
+    const messageField = document.getElementById('formMessage');
+    const submitBtn = document.getElementById('submitBtn');
+    const whatsappDmBtn = document.getElementById('whatsappDmBtn');
+
+    // Dynamically update WhatsApp DM link as user types their message
+    const updateWhatsAppHref = () => {
+      if (!whatsappDmBtn) return;
+      const nameVal = nameField ? nameField.value.trim() : '';
+      const subjectVal = subjectField ? subjectField.value.trim() : '';
+      const msgVal = messageField ? messageField.value.trim() : '';
+
+      let text = 'Hi Kishore, I would like to connect regarding an opportunity.';
+      if (msgVal || nameVal) {
+        text = `Hi Kishore, ${nameVal ? `I'm ${nameVal}. ` : ''}${subjectVal ? `[${subjectVal}] ` : ''}${msgVal}`;
+      }
+      whatsappDmBtn.href = `https://wa.me/919344291464?text=${encodeURIComponent(text.trim())}`;
+    };
+
+    [nameField, subjectField, messageField].forEach(field => {
+      if (field) field.addEventListener('input', updateWhatsAppHref);
+    });
+
+    // Initialize EmailJS with active public key
     if (typeof emailjs !== 'undefined') {
       emailjs.init('nKy3xqbVwMeIZjocG');
     }
@@ -220,13 +245,12 @@ document.addEventListener('DOMContentLoaded', () => {
     emailForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      const nameField = document.getElementById('formName');
-      const emailField = document.getElementById('formEmail');
-      const subjectField = document.getElementById('formSubject');
-      const messageField = document.getElementById('formMessage');
-      const submitBtn = document.getElementById('submitBtn');
+      const nameVal = nameField ? nameField.value.trim() : '';
+      const emailVal = emailField ? emailField.value.trim() : '';
+      const subjectVal = subjectField && subjectField.value.trim() ? subjectField.value.trim() : 'Portfolio Contact Inquiry';
+      const msgVal = messageField ? messageField.value.trim() : '';
 
-      if (!nameField.value.trim() || !emailField.value.trim() || !messageField.value.trim()) {
+      if (!nameVal || !emailVal || !msgVal) {
         Swal.fire({
           icon: 'warning',
           title: 'Required Fields',
@@ -243,34 +267,58 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
       submitBtn.disabled = true;
 
+      // Send via EmailJS with all common template parameter aliases
       emailjs.send('service_fuelwwp', 'template_e69v7yp', {
-        name: nameField.value.trim(),
-        title: subjectField ? subjectField.value.trim() : 'Portfolio Contact',
-        to_email: emailField.value.trim(),
-        message: messageField.value.trim()
+        name: nameVal,
+        from_name: nameVal,
+        title: subjectVal,
+        subject: subjectVal,
+        to_email: emailVal,
+        from_email: emailVal,
+        reply_to: emailVal,
+        email: emailVal,
+        message: msgVal
       })
       .then(function(response) {
         Swal.fire({
           icon: 'success',
           title: 'Message Sent Successfully!',
-          text: "Thank you for reaching out, Kishore will get back to you promptly.",
+          text: 'Thank you for reaching out, Kishore will get back to you promptly.',
           background: '#0f172a',
           color: '#f8fafc',
           confirmButtonColor: '#38bdf8'
         });
 
-        // Reset form
+        // Reset form and sync WhatsApp button
         emailForm.reset();
+        updateWhatsAppHref();
       })
       .catch(function(error) {
-        console.error('EmailJS Error:', error);
+        console.error('Email gateway dispatch notice:', error);
+
+        const waUrl = `https://wa.me/919344291464?text=${encodeURIComponent(`Hi Kishore, I'm ${nameVal} (${emailVal}). Regarding: ${subjectVal}.\n\n${msgVal}`)}`;
+        const mailtoUrl = `mailto:kishore787120@gmail.com?subject=${encodeURIComponent(subjectVal)}&body=${encodeURIComponent(`Hi Kishore,\n\nName: ${nameVal}\nEmail: ${emailVal}\n\nMessage:\n${msgVal}`)}`;
+
         Swal.fire({
-          icon: 'error',
-          title: 'Delivery Failed',
-          text: 'Could not send the message automatically. Feel free to email directly at kishore787120@gmail.com.',
+          icon: 'info',
+          title: 'Direct Message Dispatch',
+          html: `
+            <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 18px; line-height: 1.5;">
+              To ensure your message reaches Kishore immediately without any mail server delay, choose your preferred direct channel:
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary-glow" style="display: inline-flex; justify-content: center; align-items: center; gap: 8px; text-decoration: none; padding: 12px 20px; border-radius: 9999px; font-weight: 600;">
+                <i class="bi bi-whatsapp"></i> Send via WhatsApp Directly
+              </a>
+              <a href="${mailtoUrl}" class="btn-glass" style="display: inline-flex; justify-content: center; align-items: center; gap: 8px; text-decoration: none; padding: 12px 20px; border-radius: 9999px; font-weight: 600;">
+                <i class="bi bi-envelope-at-fill text-info"></i> Send via Email Client
+              </a>
+            </div>
+          `,
+          showConfirmButton: false,
+          showCloseButton: true,
           background: '#0f172a',
-          color: '#f8fafc',
-          confirmButtonColor: '#38bdf8'
+          color: '#f8fafc'
         });
       })
       .finally(function() {

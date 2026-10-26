@@ -1167,7 +1167,7 @@
             <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
               <div class="glass-card contact-form-card">
                 <h3 class="text-white mb-2">Send a Direct Message</h3>
-                <p class="text-muted small mb-4">Your message will be delivered straight to my inbox via EmailJS.</p>
+                <p class="text-muted small mb-4">Your message will be delivered straight to my inbox. I typically respond within 24 hours.</p>
 
                 <form id="contactForm">
                   <div class="row g-3">
@@ -1188,9 +1188,14 @@
                       <textarea id="formMessage" class="form-control-custom" rows="5" placeholder="Tell me about your project, team, or opportunity..." required></textarea>
                     </div>
                     <div class="col-12 pt-2">
-                      <button type="submit" id="submitBtn" class="btn-primary-glow w-100 justify-content-center">
-                        <i class="bi bi-send-fill"></i> Send Message
-                      </button>
+                      <div class="d-flex flex-column flex-sm-row gap-2">
+                        <button type="submit" id="submitBtn" class="btn-primary-glow flex-grow-1 justify-content-center">
+                          <i class="bi bi-send-fill"></i> Send Message
+                        </button>
+                        <a id="whatsappDmBtn" href="https://wa.me/919344291464?text=Hi%20Kishore,%20I%20would%20like%20to%20connect%20regarding%20an%20opportunity" target="_blank" rel="noopener noreferrer" class="btn-glass justify-content-center text-nowrap">
+                          <i class="bi bi-whatsapp text-success"></i> WhatsApp DM
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </form>
